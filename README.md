@@ -31,6 +31,7 @@ greater detail where they reside (in the "modules" directory):
 - Pubmed*
 - Digital Object Identifiers (DOI)*
 - Zip file
+- geo_lookup
 
 (* Currently, only creates "citation" documents, as used in the
 islandora_scholar module)

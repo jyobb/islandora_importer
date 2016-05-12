@@ -1,0 +1,54 @@
+<?php
+
+/**
+ * @file
+ * Defines all the hooks this module implements.
+ */
+
+/**
+ * Implements hook_menu().
+ */ 
+function geo_lookup_menu() {
+  return array(
+    'admin/islandora/geolookup' => array(
+      'title' => 'Geocoordinate lookup',
+      'description' => 'Configure the Geocoordinate lookup.',
+      'page callback' => 'drupal_get_form',
+      'page arguments' => array('geo_lookup_admin_settings_form'),
+      'access arguments' => array('administer site configuration'),
+      'file' => 'includes/admin.form.inc',
+      'type' => MENU_NORMAL_ITEM,
+    ),
+  );
+}
+
+
+
+/**
+ * Implements hook_islandora_importer().
+ */
+function geo_lookup_islandora_importer() {
+  return array(
+    'geo_lookup' => array(
+      'title' => t('Geocoordinate lookup on import'),
+      'class' => 'GeoLookupImporter',
+    ),
+  );
+}
+
+/**
+ * Implements hook_help().
+ */
+function geo_lookup_help($path, $args) {
+  if ($path == 'islandora/object/%islandora_object/manage/collection/batch_import') {
+    return '<p>' . t('The "Geocoordinate Lookup" allows for batch imports in a very similar manner
+      to the Drupal 6 batch ingester, where a zip file could be uploaded and objects created
+      based on the names of the files contained. The files are grouped by dropping the extension,
+      so "my_file.xml" and "my_file.pdf" would be used to create a single object. Currently,
+      the XML files can contain MODS, MARCXML or DC metadata; if no XML is given, basic MODS
+      (and DC) metadata will be generated with just the base filename. For other files, we try
+      to match mimetypes against those declared for datastreams in the selected content model\'s
+      "DS-COMPOSITE" stream.') .
+    '</p>';
+  }
+}

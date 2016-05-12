@@ -1,0 +1,8 @@
+name = GeoLocation Lookup
+description = Importer plugin for performing geolocation lookups on Zip uploads.
+package = Islandora
+dependencies[] = islandora_importer
+dependencies[] = islandora_basic_collection
+version = 7.x-dev
+files[] = includes/importer.inc
+core = 7.x

@@ -11,6 +11,8 @@ SUMMARY
 
 Geo Lookup
 
+A modification of the Zip importer module
+
 Performs a GeoCoordinate lookup and adds to MODS.
 
 REQUIREMENTS
@@ -19,7 +21,8 @@ REQUIREMENTS
 The following Drupal modules are required:
  * islandora_importer
  * islandora_basic_collection
- * islandora_importer/zip_importer
+ * geoname_local
+
 
 INSTALLATION
 ------------
